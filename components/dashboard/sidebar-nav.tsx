@@ -6,9 +6,14 @@ import { usePathname } from "next/navigation";
 import {
   ChevronDown,
   Home,
-  Hammer,
-  Settings,
   Users,
+  Settings,
+  Contact,
+  Handshake,
+  BarChart2,
+  UserPlus,
+  FileText,
+  Briefcase,
 } from "lucide-react";
 import {
   Collapsible,
@@ -25,20 +30,18 @@ type NavItem = {
 
 const sections: { title: string; items: NavItem[] }[] = [
   {
-    title: "Platform",
+    title: "Main",
     items: [
-      { label: "Overview", href: "/dashboard", icon: Home },
-      {
-        label: "Feature",
-        href: "/dashboard/feature",
-        icon: Hammer,
-      },
+      { label: "Dashboard", href: "/dashboard", icon: Home },
+      { label: "Contacts", href: "/dashboard/contacts", icon: Users },
+      { label: "Deals", href: "/dashboard/deals", icon: Briefcase },
+      { label: "Overview", href: "/dashboard/overview", icon: BarChart2 },
     ],
   },
   {
     title: "Account",
     items: [
-      { label: "Team", href: "/dashboard/team", icon: Users },
+      { label: "Team", href: "/dashboard/team", icon: UserPlus },
       { label: "Settings", href: "/dashboard/settings", icon: Settings },
     ],
   },
@@ -124,6 +127,9 @@ export function SidebarNav() {
 
   return (
     <div className="flex flex-1 flex-col">
+      <div className="font-bold text-2xl mb-6 pl-3 pt-2 select-none text-primary">
+        ClientFlow
+      </div>
       <nav className="flex-1 space-y-4">
         {sections.map((section) => (
           <NavSection
